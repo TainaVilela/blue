@@ -1,0 +1,1 @@
+console.log("Atirei o pau no gato to to \nMas o gato to to \nnão morreu reu reu")
