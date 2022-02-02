@@ -12,23 +12,30 @@ let computadorGanha = 0;
 let empatado = 0;
 let repetir = " ";
 
-//Ler a minha escolha (Pedra, papel ou tesoura, ou os elementos escolhidos por você para o seu jogo);
-function apostaUsu(){
-    elementoUsu = prompt(`Sua vez de jogar, você quer PEDRA, PAPEL ou TESOURA? `);
-
-//validando as escolhas
-    if(elementoUsu == 'pedra' || elementoUsu == 'Pedra' || elementoUsu == 'PEDRA'){
-       return elementos[0]
-    } else if(elementoUsu == 'papel' || elementoUsu == 'Papel' || elementoUsu == 'PAPEL'){
-        return elementos[1]
-    } else if(elementoUsu == 'tesoura' || elementoUsu == 'Tesoura' || elementoUsu == 'TESOURA'){
-        return elementos[2]
-    } else {
-        console.log('jogada não identificada')
-    }
-        }
-
+//Ler a minha escolha (Pedra, papel ou tesoura);
+    function apostaUsu() {
         do{
+            elementoUsu = prompt(`Sua vez de jogar, você quer PEDRA, PAPEL ou TESOURA? `).toLowerCase();
+
+//validando com as escolhas
+            if (elementoUsu == 'pedra') {
+                return elementos[0]
+                break;
+            } else if (elementoUsu == 'papel') {
+                return elementos[1]
+                break;
+            } else if (elementoUsu == 'tesoura') {
+                return elementos[2]
+                break;
+            } else {
+                console.log('jogada não identificada')
+
+            }
+        }while(true)
+    }{
+}
+
+do {
 //Permitir que eu decida quantas rodadas iremos fazer;
     rounds = +prompt('Quantas vezes você quer jogar? ')
 
@@ -73,9 +80,8 @@ function apostaUsu(){
 //Perguntar se o Jogador quer jogar novamente: Se sim volte ao primeiro passo, se não finalize o programa.
     console.log('Escreva s para sim e n para não!')
     repetir = prompt('Você quer jogar de novo? ')
-            console.log();
+    console.log();
 
 }while(repetir == 's'){
 
 }
-

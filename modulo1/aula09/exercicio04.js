@@ -3,7 +3,6 @@ votar e ao final mostrar o número de votos de cada candidato.*/
 
 const prompt = require('prompt-sync')();
 
-
 let fulano = 0;
 let beltrano = 0;
 let sicrano = 0;
