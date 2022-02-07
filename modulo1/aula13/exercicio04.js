@@ -7,14 +7,23 @@ Exiba uma mensagem de erro caso o contato não exista.*/
 
 const prompt = require('prompt-sync')()
 
-let agenda ={
-    nome: "",
-    telefone: 0,
+let repetir = ' '
 
+const listaTelefonica = []
+
+function Agenda (nome, telefone){
+    this.nome = nome;
+    this.telefone = telefone;
 }
 console.log('Atualizando dados')
-agenda.nome = prompt('Nome: ')
-agenda.telefone = +prompt('Telefone: ')
 
+console.log('Atualizando dados')
+do {
+    let agenda = new Agenda(Agenda.nome = prompt('Nome: '), Agenda.telefone = +prompt('Telefone: '))
 
-console.log(agenda)
+    listaTelefonica.push(agenda)
+    console.log(listaTelefonica)
+
+    repetir = prompt('Você queadicionar outro contato? ')
+
+} while(repetir == 's')

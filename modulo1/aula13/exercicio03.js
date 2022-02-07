@@ -2,17 +2,28 @@
 Ela deve receber como argumento o cargo que receberá o aumento, e a taxa que ele irá aumentar. Após isso, aplique esse
 aumento à todos os funcionários daquele cargo e exiba o valor dos novos salários.*/
 
-
 const prompt = require('prompt-sync')()
 
-let cadastro ={
-    nome: "",
-    cargo: [" ", " ", " "],
-    salario: 0
+let repetir = ' '
+
+const listaCadastro = []
+
+function Cadastro(nome, cargo, salario){
+    this.nome = nome;
+    this.cargo = cargo;
+    this.salario = salario;
 }
 console.log('Atualizando dados')
-cadastro.nome = prompt('Nome: ')
-cadastro.salario = +prompt('Qual salário deseja informar? ')
-cadastro.cargo = prompt('Adicione os cargos que você ocupa: ')
+do {
+    let cadastro = new Cadastro(Cadastro.nome = prompt('Nome: '),
+        Cadastro.salario = +prompt('Qual salário deseja informar? '),
+        Cadastro.cargo = prompt('Adicione os cargos que você ocupa: '))
 
-console.log(cadastro)
+    listaCadastro.push(cadastro)
+    console.log(listaCadastro)
+
+    function qtsCadastros(){}
+
+    repetir = prompt('Você quer cadastrar de novo? ')
+
+} while(repetir == 's')
