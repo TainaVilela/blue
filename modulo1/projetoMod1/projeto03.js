@@ -10,8 +10,16 @@ const prompt = require('prompt-sync')()
  começa a busca por essa fibra de carbono
  */
 
+// personagens monstro, cientista para pesquisar a infecção e criar um atídoto, agente de segurança para capturar o
+// monstro
+
 
 //Variáveis para armazenar os status do personagem
+
+monstroLivre
+atiradorDeElite
+auxiliarAtirador
+cientista
 
 //Perguntas que alterarão esses status do personagem
 
@@ -21,6 +29,11 @@ const prompt = require('prompt-sync')()
 //Variável para controle da passagem do tempo
 
 //Variáveis de controle dos status e situações da história
+
+capturaDoMonstro
+resgatarEstilhaços
+pesquisaCientifica
+
 
 //Condicionais para alterações dessas variáveis
 
