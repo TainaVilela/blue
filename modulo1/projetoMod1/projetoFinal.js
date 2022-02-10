@@ -13,7 +13,6 @@ Capturar esse monstro não é fácil ele ronda por toda a cidade eningém sabe a
 e somente com materiais como fibra espacial produzidos no seu planeta são capazes de aniquilar o extraterrestre
 
 `);
-
 let monstroNome = prompt(`Digite o nome do personagem Monstro extraterrestre: `);
 let cientista = prompt(`Digite o nome do personagem Cientista: `);
 let cacador1 = prompt(`Digite o nome do personagem Caçador 1: `);
@@ -25,8 +24,10 @@ let separados = true;
 // let juntos = 1;
 let chances = 3;
 let count = 0;
-let codigo = [];
 let numeroCodigo = [];
+var codigo = [1, 3, 5];
+var sorteio = shuffle(codigo);
+
 // let tempo = 0;
 
 //Variáveis para armazenar os status do personagem
@@ -36,7 +37,9 @@ const infoMonstro = {
     vida: true,
     monstroNaCidade: true
 };
-
+const pegarElemento ={
+  pegou: true
+};
 const infoCacador1 = {
     cacador: cacador1,
     rotaCidade: true,
@@ -44,7 +47,6 @@ const infoCacador1 = {
     capturouMaterial: true,
     rota: 0
 };
-
 const infoCacador2 = {
     cacador: cacador2,
     rotaCidade: false,
@@ -52,7 +54,6 @@ const infoCacador2 = {
     capturouMaterial: true,
     rota: 0
 };
-
 const infoCientista = {
     cientista: cientista,
     vivo: true,
@@ -85,27 +86,53 @@ if(escolha == 2 || escolha == `nao`){
 
 console.log(`
 Após horas de caminhada no meio da floresta, ${cacador2} encontra a cápsula espacial, para conseguir pegar as partículas de fibra espacial
-ele precisa acertar uma sequencia de 3 números que não se repetem de 1 à 5.
+ele precisa acertar uma sequencia de 3 números ímpares que não se repetem de 1 à 5.
 `);
+
+function shuffle(array) {
+    let currentIndex = array.length,  randomIndex;
+    let numero = "";
+
+    // While there remain elements to shuffle...
+    while (currentIndex != 0) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+    for (const item of array) {
+        numero = numero + item.toString();
+    }
+    return numero;
+}
+
+for (i = 1; i < 4; i++) {
+    numeroCodigo = prompt('Adivinhe a sequencia para resgatar seu elemento: ');
+};
 
 // valindando a condição pela opção escolhida
 
 function tentativa() {
-    for (let i = 1; i < 6; i++) {
-        let codigo = parseInt(prompt('Adivinhe a sequencia para resgatar seu elemento: ' + i + ': '));
-        numeroCodigo.push(codigo)
-    }
-}
-do{
-    for (i = 0; i < chances; i++) {
-        codigo.push(Math.floor(Math.random() * 5 + 1));
-    }
-}
-while (codigo != numeroCodigo) {
-    console.log(`Você erro o código`);
-    codigo = parseInt(prompt('Adivinhe o código de 5 dígitos: '));
+    do {
+      codigo = parseInt(+prompt('Digite o códico para desbloquear o elemento: '))
 
-    if (codigo == numeroCodigo) {
-        console.log('Você acertou!');
-    };
+        if(codigo == numeroCodigo){
+            return pegarElemento;
+        } else if(codigo != numeroCodigo){
+            break;
+        } else{
+            console.log('Jogada não identificada!')
+        }
+    }while(true){
+}};
+do{
+        for(i = 0; i > chances; i++){
+            tentativa();
+            numeroCodigo = codigo[Math.floor(Math.random() * 3)]
+        };
+} while(true){
 };

@@ -78,20 +78,3 @@ Caçador 2: Waldron
 //Funções para executar cada uma das tarefas function Reiniciar
 
 //Conteúdo de condicionais, laços, funções e objetos bem aplicados
-
-
-
-   chegarCapsula = (floresta) => {
-        if (cacadoresJuntos() == 'SIM' || cacadoresJuntos() == 'S') {
-            return separados++
-        } else {
-            return juntos++
-        }
-    };
-    chegarMonstro = (cidade) => {
-        if (rota == 'SIM' || rota == 'S') {
-            return separados++
-        } else {
-            return juntos++
-        }
-    };
