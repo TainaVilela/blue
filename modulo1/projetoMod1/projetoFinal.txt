@@ -42,7 +42,7 @@ Caçador 2: Waldron
        dia 3 {O antídoto ficou pronto a pempo, hora de imunizar a população e matar o monstro.
 
        Os atiradores conseguiram acertar o monstro?
-       Só tem 3 chances (acerte os números pares entre 1 e 10)
+       Só tem 3 chances (acerte os números pares entre 1 e 5)
        Sim- VOCÊ GANHOU!
        Não- VOCÊ PERDEU, O MONSTRO SOBREVIVEU E O VIRUS CONTINUOU SE EXPALHANDO E MATANDO A POPULAÇÃO}}
 
