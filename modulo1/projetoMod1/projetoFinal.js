@@ -21,7 +21,6 @@ let sangueMonstro = true;
 let fibraEspacial = true;
 let escolha = "";
 let separados = true;
-// let juntos = 1;
 let chances = 3;
 let count = 0;
 let numeroCodigo = [];
@@ -77,16 +76,19 @@ escolha = prompt(`R: `).toLowerCase();
 
 if(escolha == 1 || escolha == `sim`){
     separados = true;
-}
-if(escolha == 2 || escolha == `nao`){
+}else if(escolha == 2 || escolha == `nao`){
     separados = false;
+}else{
+    console.log('Escolha não identificada')
+    //criar retorno para escolha
+
 };
 
 //Buscar elementos para antídoto e bala capaz de matar o monstro
 
 console.log(`
-Após horas de caminhada no meio da floresta, ${cacador2} encontra a cápsula espacial, para conseguir pegar as partículas de fibra espacial
-ele precisa acertar uma sequencia de 3 números ímpares que não se repetem de 1 à 5.
+Após horas de caminhada no meio da floresta, ${cacador2} encontra a cápsula espacial, para conseguir pegar as partículas de fibra espacial, você
+tem 3 chances para acertar uma sequencia de 3 números ímpares que não se repetem de 1 à 5.
 `);
 
 function shuffle(array) {
@@ -110,29 +112,40 @@ function shuffle(array) {
     return numero;
 }
 
-for (i = 1; i < 4; i++) {
-    numeroCodigo = prompt('Adivinhe a sequencia para resgatar seu elemento: ');
-};
-
 // valindando a condição pela opção escolhida
+function voltaAoLaboratorioComMaterial(){
+    console.log('teste')
+};
+function voltaLaboratorioSemMaterial(){
+    console.log('teste sem material')
+}
 
 function tentativa() {
     do {
-      codigo = parseInt(+prompt('Digite o códico para desbloquear o elemento: '))
+        codigo = ('Digite o códico para desbloquear o elemento: ')
 
-        if(codigo == numeroCodigo){
+        if(codigo == sorteio){
             return pegarElemento;
-        } else if(codigo != numeroCodigo){
+        } else if(codigo != sorteio){
             break;
         } else{
             console.log('Jogada não identificada!')
         }
     }while(true){
-}};
-do{
-        for(i = 0; i > chances; i++){
-            tentativa();
-            numeroCodigo = codigo[Math.floor(Math.random() * 3)]
-        };
-} while(true){
-};
+    }};
+do {
+        codigo = ('Digite o códico para desbloquear o elemento: ');
+        tentativa();
+        for (tentativa = 0; tentativa < 3; tentativa++) {
+            if (codigo == sorteio) {
+                console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.`)
+                break;
+            }
+            if (codigo != sorteio) {
+                console.log('você errou!')
+                break;
+            }
+        }
+} while (true)
+    {   };
+
