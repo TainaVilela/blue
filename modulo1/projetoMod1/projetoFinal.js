@@ -158,7 +158,11 @@ function tentativasS(){
             }
             if (codigo != sorteio) {
                 console.log('você errou, se ainda possui vida tente mais uma vez!\n')
-                voltaLaboratorioSemMaterial();
+                if(infoCacador1Vida <= 0 && infoCacador2Vida <= 0) {
+                    return voltaLaboratorioSemMaterial();
+                }else{
+                    monstrovence()
+                }
             }
         }
     }
@@ -195,16 +199,21 @@ function tentativasSeparados() {
                 console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa..
                 Para continuar...1) Sim`)
                 let continuar = prompt(`R: `).toLowerCase();
-                if(continuar== 1 || continuar == 'sim'){
+                if(infoCacador1Vida <= 0 && infoCacador2Vida <= 0){
                     console.clear()
                     voltaAoLaboratorioComMaterial();
+                }else{
+                    return monstrovence()
                 }
             }
         };
         if (codigo != sorteio) {
-            console.log('você errou, como ainda possui vida tente mais uma vez!\n')
-            console.log(sorteio)
-            voltaLaboratorioSemMaterial();
+            if(infoCacador1Vida <= 0 && infoCacador2Vida <= 0) {
+                console.log('você errou, como ainda possui vida tente mais uma vez!\n')
+                return voltaAoLaboratorioComMaterial();
+            }else{
+                return monstrovence()
+            };
         };
     };
 };
@@ -224,6 +233,7 @@ function voltaLaboratorioSemMaterial(){
         tentativasS();
     }
 }
+
 validador();
 tentativasS();
 
@@ -231,6 +241,7 @@ function voltaAoLaboratorioComMaterial(){
     console.log('Você chegou aqui com o material necessário, amanhã iremos destruir esse monstro e salvar a humanidade!')
     return ultimoDesafio()
 }
+
 function jogarnovamente(){
     do { console.log(`Deseja jogar novamente?: 
     1) Sim            2) Não`)
