@@ -12,10 +12,10 @@ e somente com materiais como fibra espacial produzidos no seu planeta são capaz
 `);
 
 let escolha = "";
-let separados = true;
-let chances = 3;
-let count = 0;
-let numeroCodigo = [];
+// let separados = true;
+// let chances = 3;
+// let count = 0;
+// let numeroCodigo = [];
 var codigo = [1, 3, 5];
 var sorteio = shuffle(codigo);
 let tentativa;
@@ -170,46 +170,29 @@ function tentativasS() {
     console.log(`Ao encontrarem a nave notam que o monstro está dormindo profundamente e tentam desbloquear a porta da nave para buscar o que é necessário
             ...
             para desbloquear essa porta é necessário digitar um código de 3 números ímpares aleatórios entre 1 e 5 que não se repetem! `);
-    for (let tentativa = 0; tentativa < 3; tentativa++) {
+    for (let tentativa = 1; tentativa < 4; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
-        console.log(sorteio)
+        console.log(sorteio);
+        if (codigo == sorteio) {
+            break;
+        }
     }
-    switch (tentativa < 3 && codigo === sorteio) {
-        case tentativa < 1 && codigo !== sorteio:
-            console.log(`Você errou todas as tentativas de abrir a nave o código era ${sorteio}, mas o tempo está correndo!
+    if (codigo !== sorteio) {
+        console.log(`Você errou todas as tentativas de abrir a nave o código era ${sorteio}, mas o tempo está correndo!
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
-            let continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-            break;
-
-        case tentativa < 1 && codigo === sorteio:
-            console.log(`Você acertou o código para abrir a nave, mas o tempo está correndo!
-        Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
-        Para segui para o laboratório...
-        1) Sim`);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-            break;
-
-        case tentativa >= 1 && codigo !== sorteio:
-            console.log(`Você acertou o código para abrir a nave, mas o tempo está correndo!
-        Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
-        Para segui para o laboratório...
-        1) Sim`);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-            break;
-
-        case tentativa >= 1 && codigo === sorteio:
-            console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
+        let continuar = prompt(`R: `).toLowerCase();
+        return voltaLaboratorioSemMaterial();
+    } else if (codigo === sorteio) {
+        console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
                 Para continuar...
                 Pronto para seguir para o laboratório? 
                 1) Sim `);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaAoLaboratorioComMaterial();
+        continuar = prompt(`R: `).toLowerCase();
+        return voltaAoLaboratorioComMaterial();
     }
+
 }
 
 function tentativasSeparados() {
@@ -248,26 +231,27 @@ function tentativasSeparados() {
         " estejam lá\n"
     );
 
-    for (let tentativa = 0; tentativa < 3; tentativa++) {
+    for (let tentativa = 1; tentativa < 4; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
-        console.log(sorteio)
+        console.log(sorteio);
+        if (codigo == sorteio) {
+            break;
+        }
     }
-    switch (tentativa < 3 && codigo === sorteio) {
-        case tentativa < 1 && codigo !== sorteio:
-            console.log(`Você errou todas as tentativas de abrir a nave o código era ${sorteio}, mas o tempo está correndo!
+    if (codigo !== sorteio) {
+        console.log(`Você errou todas as tentativas de abrir a nave o código era ${sorteio}, mas o tempo está correndo!
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
-            let continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-
-        case tentativa >= 1 && codigo === sorteio:
-            console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
+        let continuar = prompt(`R: `).toLowerCase();
+        return voltaLaboratorioSemMaterial();
+    } else if (codigo === sorteio) {
+        console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
                 Para continuar...
                 Pronto para seguir para o laboratório? 
                 1) Sim `);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaAoLaboratorioComMaterial();
+        continuar = prompt(`R: `).toLowerCase();
+        return voltaAoLaboratorioComMaterial();
     }
 }
 
@@ -292,44 +276,44 @@ function voltaAoLaboratorioComMaterial() {
     return ultimoDesafio();
 }
 
-function jogarnovamente() {
-    do {
-        console.log(`Deseja jogar novamente?: 
-    1) Sim            2) Não`);
+// function jogarnovamente() {
+//     do {
+//         console.log(`Deseja jogar novamente?:
+//     1) Sim            2) Não`);
 
-        console.log(
-            "\nStatus de vida " + cacador1 + ": " + Math.trunc(infoCacador1Vida.vida)
-        );
-        console.log(
-            "Status de vida " +
-            cacador2 +
-            ": " +
-            Math.trunc(infoCacador2Vida.vida) +
-            "\n"
-        );
-        jogarD = prompt(`Resposta: `).toLowerCase();
-        if (jogarD == 1) {
-            //Retornando valores das variaves
-            escolha = "";
-            separados = true;
-            chances = 3;
-            count = 0;
-            dias = 0;
+//         console.log(
+//             "\nStatus de vida " + cacador1 + ": " + Math.trunc(infoCacador1Vida.vida)
+//         );
+//         console.log(
+//             "Status de vida " +
+//             cacador2 +
+//             ": " +
+//             Math.trunc(infoCacador2Vida.vida) +
+//             "\n"
+//         );
+//         jogarD = prompt(`Resposta: `).toLowerCase();
+//         if (jogarD == 1) {
+//             //Retornando valores das variaves
+//             escolha = "";
+//             separados = true;
+//             chances = 3;
+//             count = 0;
+//             dias = 0;
 
-            //Retornando valores das variaves
-            infoMonstroVida.vida = 200;
-            infoCacador1Vida.vida = 100;
-            infoCacador2Vida.vida = 100;
-            infoCientistaVida.vida = 100;
+//             //Retornando valores das variaves
+//             infoMonstroVida.vida = 200;
+//             infoCacador1Vida.vida = 100;
+//             infoCacador2Vida.vida = 100;
+//             infoCientistaVida.vida = 100;
 
-            return validador();
-        } else {
-            return ganharGame();
-        }
-    } while (true);
-    {
-    }
-}
+//             return validador();
+//         } else {
+//             return ganharGame();
+//         }
+//     } while (true);
+//     {
+//     }
+// }
 
 function ultimoDesafio() {
     console.log("");
@@ -359,6 +343,9 @@ ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
     }
 
     function compararDados(a, b) {
+        console.log(`${jogadores[0].nome} tirou ${jogadores[0].golpe} de dano.
+${jogadores[1].nome} tirou ${jogadores[1].golpe} de dano.
+`)
         return a.golpe - b.golpe;
     }
     function compararVitorias(a, b) {
@@ -384,11 +371,11 @@ ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
     nomes.push(nome2);
 
     criarJogador(qtdadeJogadores);
-    let qtdadeRodadas = 3;
+    let qtdadeRodadas = 4;
     validacaoNumero(qtdadeRodadas);
     let ganhador;
 
-    for (i = 0; i < qtdadeRodadas; i++) {
+    for (i = 1; i < qtdadeRodadas; i++) {
         x = 0;
         for (jogador of jogadores) {
             jogadores[x].golpe = random(20, 1);
@@ -403,10 +390,10 @@ ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
     }
     jogadores.sort(compararVitorias);
 
+    ganhador = jogadores[jogadores.length - 1].nome
     sleep(2000);
     console.log(
-        `O campeão desta etapa foi o jogador ${(ganhador =
-            jogadores[jogadores.length - 1].nome)}`
+        `O campeão desta etapa foi o jogador ${ganhador}`
     );
 
     sleep(500);
@@ -417,9 +404,9 @@ ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
     sleep(500);
     console.log(jogador);
 
-    if (ganhador === monstroNome) {
+    if (ganhador === nome1[0]) {
         return monstrovence();
-    } else if (ganhador === cientista) {
+    } else if (ganhador === nome2[0]) {
         return ganharGame();
     }
 }
@@ -431,22 +418,22 @@ function ganharGame() {
         "Parabéns você ganhou o jogo, O monstro foi derrotado com uma arma letal e a humanidade foi salva com o antitodo criado pelo cientista"
     );
     while (true) {
+        jogaMais = prompt(`R: `).toLowerCase();
+
         if (jogaMais === 1 || jogaMais === `sim`) {
             console.log(`
     Deseja jogar de novo?: 
     1) Sim            2) Não
     `);
-            jogaMais = prompt(`R: `).toLowerCase();
-                console.clear();
+
+            console.clear();
             return validador();
-            break;
         } else {
             console.log("FIM!");
-            break ;
+            break;
         }
     }
 }
-
 
 function monstrovence() {
     console.log(
@@ -465,8 +452,7 @@ function monstrovence() {
             break;
         } else {
             console.log("FIM!");
-            break ;
+            break;
         }
     }
-
 }
