@@ -43,15 +43,6 @@ let cientista = "";
 let cacador1 = "";
 let cacador2 = "";
 
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-        if (new Date().getTime() - start > milliseconds) {
-            break;
-        }
-    }
-}
-
 do {
     console.log("Digite o nome do personagem Monstro extraterrestre: ");
     monstroNome = prompt("").toUpperCase();
@@ -377,7 +368,6 @@ function ganharGame() {
 
     } else {
         console.log("FIM!");
-
     }
 
 }
