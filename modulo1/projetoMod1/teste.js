@@ -55,7 +55,7 @@ function sleep(milliseconds) {
 do {
     console.log("Digite o nome do personagem Monstro extraterrestre: ");
     monstroNome = prompt("").toUpperCase();
-    if (monstroNome === "") {
+    if (monstroNome == "") {
         console.log("Digite um nome válido para o Monstro: ");
     } else {
         break;
@@ -67,7 +67,7 @@ do {
 do {
     console.log(`Digite o nome do personagem Cientista: `);
     cientista = prompt("").toUpperCase();
-    if (cientista === "") {
+    if (cientista == "") {
         console.log("Digite um nome válido para o cientista");
     } else {
         break;
@@ -79,7 +79,7 @@ do {
 do {
     console.log(`Digite o nome do personagem Caçador 1: `);
     cacador1 = prompt("").toUpperCase();
-    if (cacador1 === "") {
+    if (cacador1 == "") {
         console.log("Digite um nome válido para o caçador 1: ");
     } else {
         break;
@@ -91,7 +91,7 @@ do {
 do {
     console.log(`Digite o nome do personagem Caçador 2: `);
     cacador2 = prompt("").toUpperCase();
-    if (cacador2 === "") {
+    if (cacador2 == "") {
         console.log("Digite um nome válido para o caçador 2: ");
     } else {
         break;
@@ -113,7 +113,7 @@ function shuffle(array) {
     let numero = "";
 
     // While there remain elements to shuffle...
-    while (currentIndex !== 0) {
+    while (currentIndex != 0) {
         // Pick a remaining element...
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
@@ -135,11 +135,11 @@ function validador() {
         console.log(`Deseja separar ${cacador1} e ${cacador2} para cada um buscar um elemento?: 
                 1) Sim            2) Não`);
         escolha = prompt(`R: `).toLowerCase();
-        if (escolha == 1 || escolha === `sim`) {
+        if (escolha == 1 || escolha == `sim`) {
             separados = true;
             return tentativasSeparados();
             break;
-        } else if (escolha == 2 || escolha === `nao`) {
+        } else if (escolha == 2 || escolha == `nao`) {
             separados = false;
             return tentativasS();
             break;
@@ -163,54 +163,55 @@ function tentativasS() {
         "\n"
     );
     dias++;
-    console.log(
-        `Os caçadores ${cacador1} e ${cacador2} seguem para buscar o sangue do monstro e pegar o material necessário para o cientista produzir uma
+            console.log(
+                `Os caçadores ${cacador1} e ${cacador2} seguem para buscar o sangue do monstro e pegar o material necessário para o cientista produzir uma
                 arma capaz de matar o monstro...`
-    );
-    console.log(`Ao encontrarem a nave notam que o monstro está dormindo profundamente e tentam desbloquear a porta da nave para buscar o que é necessário
+            );
+            console.log(`Ao encontrarem a nave notam que o monstro está dormindo profundamente e tentam desbloquear a porta da nave para buscar o que é necessário
             ...
-            para desbloquear essa porta é necessário digitar um código de 3 números ímpares aleatórios entre 1 e 5 que não se repetem! `);
-    for (let tentativa = 0; tentativa < 3; tentativa++) {
-        codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
-        console.log(sorteio)
-    }
-    switch (tentativa < 3 && codigo === sorteio) {
-        case tentativa < 1 && codigo !== sorteio:
-            console.log(`Você errou todas as tentativas de abrir a nave o código era ${sorteio}, mas o tempo está correndo!
+            para desbloquear essa porta é necessário digitar um código de 3 números ímpares aleatórios entre 1 e 5 que não se repetem! `)
+            for (let tentativa = 0; tentativa < 3; tentativa++) {
+                codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
+            }
+            switch (tentativa < 3) {
+                case tentativa < 1 && codigo != sorteio:
+                    console.log(`Você errou todas as tentativas de abrir a nave, mas o tempo está correndo!
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
-            let continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-            break;
+                    let continuar = prompt(`R: `).toLowerCase();
+                    return voltaLaboratorioSemMaterial();
+                    break;
 
-        case tentativa < 1 && codigo === sorteio:
-            console.log(`Você acertou o código para abrir a nave, mas o tempo está correndo!
+                case tentativa < 1 && codigo == sorteio:
+                    console.log(`Você acertou o código para abrir a nave, mas o tempo está correndo!
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-            break;
+                     continuar = prompt(`R: `).toLowerCase();
+                    return voltaLaboratorioSemMaterial();
+                    break;
 
-        case tentativa >= 1 && codigo !== sorteio:
-            console.log(`Você acertou o código para abrir a nave, mas o tempo está correndo!
+                case tentativa >= 1 && codigo != sorteio:
+                    console.log(`Você acertou o código para abrir a nave, mas o tempo está correndo!
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaLaboratorioSemMaterial();
-            break;
+                    continuar = prompt(`R: `).toLowerCase();
+                    return voltaLaboratorioSemMaterial();
+                    break;
 
-        case tentativa >= 1 && codigo === sorteio:
-            console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
+                case tentativa >= 1 && codigo == sorteio:
+                    console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
                 Para continuar...
                 Pronto para seguir para o laboratório? 
                 1) Sim `);
-            continuar = prompt(`R: `).toLowerCase();
-            return voltaAoLaboratorioComMaterial();
+                    continuar = prompt(`R: `).toLowerCase();
+                    return voltaAoLaboratorioComMaterial();
+
     }
 }
+
 
 function tentativasSeparados() {
     console.log(
@@ -250,18 +251,17 @@ function tentativasSeparados() {
 
     for (let tentativa = 0; tentativa < 3; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
-        console.log(sorteio)
     }
-    switch (tentativa < 3 && codigo === sorteio) {
-        case tentativa < 1 && codigo !== sorteio:
-            console.log(`Você errou todas as tentativas de abrir a nave o código era ${sorteio}, mas o tempo está correndo!
+    switch (tentativa < 3) {
+        case tentativa < 1 && codigo != sorteio:
+            console.log(`Você errou todas as tentativas de abrir a nave, mas o tempo está correndo!
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
             let continuar = prompt(`R: `).toLowerCase();
             return voltaLaboratorioSemMaterial();
 
-        case tentativa >= 1 && codigo === sorteio:
+        case tentativa >= 1 && codigo == sorteio:
             console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
                 Para continuar...
                 Pronto para seguir para o laboratório? 
@@ -273,11 +273,12 @@ function tentativasSeparados() {
 
 function voltaLaboratorioSemMaterial() {
     console.clear();
-    sleep(700);
+    sleep(700)
 
-    console.log(`Você Trouxe pedras e água... mas o cientista ${cientista} se dedicou para tentar achar algumas coisas que fossem úteis para você poder
-        lutar contra o montro na proxima etapa, deixe ele trabalhar, amanhã será um dia cansativo...`);
-    return ultimoDesafio();
+        console.log(`Você Trouxe pedras e água... mas o cientista ${cientista} se dedicou para tentar achar algumas coisas que fossem úteis para você poder
+        lutar contra o montro na proxima etapa, deixe ele trabalhar, amanhã será um dia cansativo...`
+        );
+        return ultimoDesafio();
 }
 
 validador();
@@ -285,7 +286,7 @@ tentativasS();
 
 function voltaAoLaboratorioComMaterial() {
     console.clear();
-    sleep(700);
+    sleep(700)
     console.log(
         "Você chegou aqui com o material necessário, amanhã iremos destruir esse monstro e salvar a humanidade!"
     );
@@ -396,77 +397,70 @@ ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
         }
         jogadores.sort(compararDados);
         for (a in jogadores) {
-            if (jogadores[a].golpe === jogadores[jogadores.length - 1].golpe) {
+            if (jogadores[a].golpe == jogadores[jogadores.length - 1].golpe) {
                 jogadores[a].vitorias += 1;
             }
         }
     }
     jogadores.sort(compararVitorias);
 
-    sleep(2000);
+    sleep(1000);
     console.log(
         `O campeão desta etapa foi o jogador ${(ganhador =
             jogadores[jogadores.length - 1].nome)}`
     );
 
-    sleep(500);
+    sleep(1000);
     console.log(ganhador);
     jogadores.splice(0);
     nomes.splice(0);
 
-    sleep(500);
+    sleep(1000);
     console.log(jogador);
 
-    if (ganhador === monstroNome) {
+    if (ganhador == monstroNome) {
         return monstrovence();
-    } else if (ganhador === cientista) {
+    } else if (ganhador == cientista) {
         return ganharGame();
     }
 }
 
-let jogaMais = ``;
+let jogaMais;
 
 function ganharGame() {
     console.log(
         "Parabéns você ganhou o jogo, O monstro foi derrotado com uma arma letal e a humanidade foi salva com o antitodo criado pelo cientista"
     );
-    while (true) {
-        if (jogaMais === 1 || jogaMais === `sim`) {
-            console.log(`
+    while (jogaMais == 1 || jogaMais == `sim`) {
+        console.log("Você pode jogar novamente se quiser...");
+        console.log(`
     Deseja jogar de novo?: 
     1) Sim            2) Não
     `);
-            jogaMais = prompt(`R: `).toLowerCase();
-                console.clear();
-            return validador();
-            break;
-        } else {
-            console.log("FIM!");
-            break ;
+       jogaMais = prompt(`R: `).toLowerCase();
+        if (jogaMais == 1 || jogaMais == "sim") {
+            console.clear();
+            return jogarnovamente();
         }
-    }
-}
-
+    }        console.log("FIM!");
+};
 
 function monstrovence() {
-    console.log(
-        "O monstro venceu dessa vez, mas você pode jogar novamente se quiser..."
-    );
+        console.log(
+            "O monstro venceu dessa vez, mas você pode jogar novamente se quiser..."
+        );
 
-    while (true) {
-        if (jogaMais === 1 || jogaMais === `sim`) {
-            console.log(`
+    while (jogaMais == 1 || jogaMais == `sim`) {
+        console.log(`
     Deseja jogar de novo?: 
     1) Sim            2) Não
     `);
-            jogaMais = prompt(`R: `).toLowerCase();
+        jogaMais = prompt(`R: `).toLowerCase();
+        if (jogaMais == 1 || jogaMais == `sim`) {
             console.clear();
-            return validador();
-            break;
-        } else {
-            console.log("FIM!");
-            break ;
+            return jogarnovamente();
         }
-    }
 
-}
+    }  console.log("FIM!");
+};
+
