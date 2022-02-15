@@ -164,15 +164,14 @@ function tentativasS() {
     );
     dias++;
     console.log(
-        `Os caçadores ${cacador1} e ${cacador2} seguem para buscar o sangue do monstro e pegar o material necessário para o cientista produzir uma
-                arma capaz de matar o monstro...`
+        `Os caçadores ${cacador1} e ${cacador2} seguem para buscar o sangue do monstro e pegar o material necessário para o cientista produzir uma arma capaz de matar o monstro...`
     );
     console.log(`Ao encontrarem a nave notam que o monstro está dormindo profundamente e tentam desbloquear a porta da nave para buscar o que é necessário
             ...
             para desbloquear essa porta é necessário digitar um código de 3 números ímpares aleatórios entre 1 e 5 que não se repetem! `);
     for (let tentativa = 1; tentativa < 4; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
-        console.log(sorteio);
+
         if (codigo == sorteio) {
             break;
         }
@@ -209,31 +208,17 @@ function tentativasSeparados() {
     dias++;
 
     console.log(
-        "\n" +
-        cacador2 +
-        " Encontra o monstro na cidade, ao se aproximar acaba tomando arranhões pois o monstro deixou muita \ndestruição ao redor, " +
-        cacador2 +
-        " resolve disparar com sua arma um dardo especial capaz de deixar dormindo o monstro: " +
-        monstroNome +
-        "\n por alguns minutos, \n " +
-        cacador2 +
-        " aproveita o momento para extrair o sangue e voltar ao laboratorio.\n"
+        ` ${cacador2} Encontra o monstro na cidade, ao se aproximar acaba tomando arranhões pois o monstro deixou muita destruição ao redor, ${cacador2}
+         disparar com sua arma um dardo especial capaz de deixar dormindo o monstro ${monstroNome} por alguns minutos, ${cacador2} aproveita o momento para extrair o sangue e voltar ao laboratorio.`
     );
     infoMonstroVida.vida = infoMonstroVida.vida - 50;
     console.log(
-        cacador1 +
-        " Encontra a nave do: " +
-        monstroNome +
-        ", A nave emite um forte calor, " +
-        cacador1 +
-        " ao se aproximar da nave encontra uma porta com senha para ser desbloqueada, \n pois desconfia que os materiais importantes para neutralizar o " +
-        monstroNome +
-        " estejam lá\n"
-    );
+        `${cacador1} Encontra a nave do ${monstroNome}, a nave emite um forte calor, ao se aproximar da nave sente uma grande onda de calor... tudo leva a crer
+        que dentro da nave estão os materiais necessários para produzir a bala capaz de matar o monstro e o antídoto para salvar a humanidade do vírus.`);
 
     for (let tentativa = 1; tentativa < 4; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
-        console.log(sorteio);
+
         if (codigo == sorteio) {
             break;
         }
@@ -257,7 +242,7 @@ function tentativasSeparados() {
 
 function voltaLaboratorioSemMaterial() {
     console.clear();
-    sleep(700);
+    sleep(1000);
 
     console.log(`Você Trouxe pedras e água... mas o cientista ${cientista} se dedicou para tentar achar algumas coisas que fossem úteis para você poder
         lutar contra o montro na proxima etapa, deixe ele trabalhar, amanhã será um dia cansativo...`);
@@ -269,51 +254,12 @@ tentativasS();
 
 function voltaAoLaboratorioComMaterial() {
     console.clear();
-    sleep(700);
+    sleep(1000);
     console.log(
         "Você chegou aqui com o material necessário, amanhã iremos destruir esse monstro e salvar a humanidade!"
     );
     return ultimoDesafio();
 }
-
-// function jogarnovamente() {
-//     do {
-//         console.log(`Deseja jogar novamente?:
-//     1) Sim            2) Não`);
-
-//         console.log(
-//             "\nStatus de vida " + cacador1 + ": " + Math.trunc(infoCacador1Vida.vida)
-//         );
-//         console.log(
-//             "Status de vida " +
-//             cacador2 +
-//             ": " +
-//             Math.trunc(infoCacador2Vida.vida) +
-//             "\n"
-//         );
-//         jogarD = prompt(`Resposta: `).toLowerCase();
-//         if (jogarD == 1) {
-//             //Retornando valores das variaves
-//             escolha = "";
-//             separados = true;
-//             chances = 3;
-//             count = 0;
-//             dias = 0;
-
-//             //Retornando valores das variaves
-//             infoMonstroVida.vida = 200;
-//             infoCacador1Vida.vida = 100;
-//             infoCacador2Vida.vida = 100;
-//             infoCientistaVida.vida = 100;
-
-//             return validador();
-//         } else {
-//             return ganharGame();
-//         }
-//     } while (true);
-//     {
-//     }
-// }
 
 function ultimoDesafio() {
     console.log("");
@@ -321,6 +267,7 @@ function ultimoDesafio() {
     console.clear();
     console.log(`Essa é última missão, com o antídoto pronto e as armas calibradas com o material que você buscou, um jogo aleatório entre
 ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
+    sleep(4000);
 
     function random(maximo, minimo = 0) {
         let max = Math.floor(maximo);
@@ -373,7 +320,7 @@ ${jogadores[1].nome} tirou ${jogadores[1].golpe} de dano.
     criarJogador(qtdadeJogadores);
     let qtdadeRodadas = 4;
     validacaoNumero(qtdadeRodadas);
-    let ganhador;
+    let ganhador ;
 
     for (i = 1; i < qtdadeRodadas; i++) {
         x = 0;
@@ -396,63 +343,60 @@ ${jogadores[1].nome} tirou ${jogadores[1].golpe} de dano.
         `O campeão desta etapa foi o jogador ${ganhador}`
     );
 
-    sleep(500);
+    sleep(2500);
     console.log(ganhador);
     jogadores.splice(0);
     nomes.splice(0);
 
-    sleep(500);
+    sleep(2500);
     console.log(jogador);
 
-    if (ganhador === nome1[0]) {
+    if (ganhador == nome1) {
         return monstrovence();
-    } else if (ganhador === nome2[0]) {
+    } else if (ganhador == nome2) {
         return ganharGame();
     }
 }
 
-let jogaMais = ``;
+var jogaMais = '';
 
 function ganharGame() {
     console.log(
-        "Parabéns você ganhou o jogo, O monstro foi derrotado com uma arma letal e a humanidade foi salva com o antitodo criado pelo cientista"
+        "Parabéns você ganhou o jogo, o monstro foi derrotado com uma arma letal e a humanidade foi salva com o antitodo criado pelo cientista"
     );
-    while (true) {
+
+    console.log(`
+   Deseja jogar de novo?:
+        1) Sim            2) Não
+        `);
+
         jogaMais = prompt(`R: `).toLowerCase();
-
-        if (jogaMais === 1 || jogaMais === `sim`) {
-            console.log(`
-    Deseja jogar de novo?: 
-    1) Sim            2) Não
-    `);
-
-            console.clear();
+        console.log(jogaMais)
+    if (jogaMais === '1' || jogaMais === `sim`) {
             return validador();
-        } else {
-            console.log("FIM!");
-            break;
-        }
+
+    } else {
+        console.log("FIM!");
+
     }
+
 }
 
 function monstrovence() {
     console.log(
         "O monstro venceu dessa vez, mas você pode jogar novamente se quiser..."
     );
-
-    while (true) {
-        if (jogaMais === 1 || jogaMais === `sim`) {
-            console.log(`
+    console.log(`
     Deseja jogar de novo?: 
     1) Sim            2) Não
     `);
-            jogaMais = prompt(`R: `).toLowerCase();
-            console.clear();
-            return validador();
-            break;
-        } else {
-            console.log("FIM!");
-            break;
-        }
+
+    jogaMais = prompt(`R: `).toLowerCase();
+    if (jogaMais === '1' || jogaMais === `sim`) {
+          return validador();
+
+    } else {
+        console.log("FIM!");
     }
-}
+
+};
