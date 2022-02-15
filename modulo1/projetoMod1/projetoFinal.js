@@ -200,8 +200,7 @@ function tentativasSeparados() {
                     if(continuar == 1 || continuar =='sim')
                     console.clear()
                     return voltaAoLaboratorioComMaterial();
-                }else{
-                    return monstrovence()
+                }
                 }
             }
         };
@@ -210,7 +209,6 @@ function tentativasSeparados() {
                 console.log('você errou, como ainda possui vida tente mais uma vez!\n')
                 return voltaAoLaboratorioComMaterial();
             };
-        }
     }else{
         return monstrovence()
     };
