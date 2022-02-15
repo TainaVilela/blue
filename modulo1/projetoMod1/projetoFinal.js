@@ -250,7 +250,6 @@ function voltaLaboratorioSemMaterial() {
 }
 
 validador();
-tentativasS();
 
 function voltaAoLaboratorioComMaterial() {
     console.clear();
