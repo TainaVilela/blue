@@ -5,10 +5,8 @@ Um acidente no espaço faz com que um monstro caia no planeta, sua cápsula foi 
 da cidade alegam que o extraterrestre está rondando a cidade e quando ele começa a entrar em contato com as pessoas transmite um vírus letal 
 que vai dizimar a população em 3 dias.
 Ao ser reconhecido como uma ameaça, se inicia no planeta uma caçada para capturar o extraterrestre e encontrar uma cura para esse vírus.
-
 No laboratório da cidade começam as pesquisas para encontrar uma cura para esse vírus letal,o cientista ao examinar os corpos mortos 
 que há uma alteração no sangue dos infectados e que só poderá produzir o antídoto para a cura com o sangue do monstro.
-
 Capturar esse monstro não é fácil ele ronda por toda a cidade e ninguém sabe ao certo o que ele pode fazer além de infectar, ele é muito poderoso 
 e somente com materiais como fibra espacial produzidos no seu planeta são capazes de aniquilar o extraterrestre
 `);
@@ -84,7 +82,6 @@ do {
 console.log(`
 Os caçadores vão fazer uma busca, mas, precisam planejar a melhor estratégia, uma busca pela cidade atrás do extraterrestre,
 uma varredura na floresta que cerca a cidade e onde especialistas afirmam que a cápsula caiu, tudo isso demanda tempo!
-
 Você pode enviar os dois juntos para se protegerem e se ajudarem nas buscas e cada caçada em busca de seus elemento dura 1 dia,
 ou, pode separá-los, enviar um para a cidade e outro para a floresta afim de ganhar tempo, mas podem haver muitos perigos!
 `);
@@ -129,8 +126,8 @@ function validador(){
     }while(true){}
 }
 
-function tentativasS(){
-    if(separados == false) {
+function tentativasS() {
+    if (separados == false) {
         console.log('\nStatus de vida ' + cacador1 + ': ' + Math.trunc(infoCacador1Vida.vida))
         console.log('Status de vida ' + cacador2 + ': ' + Math.trunc(infoCacador2Vida.vida) + '\n')
         dias++
@@ -151,18 +148,18 @@ function tentativasS(){
                 console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
                 Para continuar...1) Sim `)
                 let continuar = prompt(`R: `).toLowerCase();
-                if(continuar== 1 || continuar == `sim`){
+                if (continuar == 1 || continuar == `sim`) {
                     console.clear()
-                    voltaAoLaboratorioComMaterial();
+                    return voltaAoLaboratorioComMaterial();
                 }
-            }
-            if (codigo != sorteio) {
-                console.log('você errou, se ainda possui vida tente mais uma vez!\n')
-                if(infoCacador1Vida <= 0 && infoCacador2Vida <= 0) {
-                    return voltaLaboratorioSemMaterial();
-                }else{
-                    monstrovence()
+                if (codigo != sorteio) {
+                    console.log('você errou, se ainda possui vida tente mais uma vez!\n')
+                    if (infoCacador1Vida <= 0 && infoCacador2Vida <= 0) {
+                        return voltaLaboratorioSemMaterial();
+                    }
                 }
+            } else {
+                monstrovence()
             }
         }
     }
@@ -198,10 +195,11 @@ function tentativasSeparados() {
             if (codigo == sorteio) {
                 console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa..
                 Para continuar...1) Sim`)
-                let continuar = prompt(`R: `).toLowerCase();
                 if(infoCacador1Vida <= 0 && infoCacador2Vida <= 0){
+                    let continuar = prompt(`R: `).toLowerCase();
+                    if(continuar == 1 || continuar =='sim')
                     console.clear()
-                    voltaAoLaboratorioComMaterial();
+                    return voltaAoLaboratorioComMaterial();
                 }else{
                     return monstrovence()
                 }
@@ -211,10 +209,10 @@ function tentativasSeparados() {
             if(infoCacador1Vida <= 0 && infoCacador2Vida <= 0) {
                 console.log('você errou, como ainda possui vida tente mais uma vez!\n')
                 return voltaAoLaboratorioComMaterial();
-            }else{
-                return monstrovence()
             };
-        };
+        }
+    }else{
+        return monstrovence()
     };
 };
 
@@ -225,12 +223,11 @@ function voltaLaboratorioSemMaterial(){
 
     if (infoCacador2Vida.vida == 0.7000000000000028 && infoCacador2Vida.vida == 0.7000000000000028 ){
         console.log('Você esta sem vida, Você perdeu o jogo\n')
-        jogarnovamente();
+         return jogarnovamente();
         // intCacador2 = parseInt(infoCacador2Vida);
         // intCacador1 = parseInt(infoCacador1Vida);
-    }else if(infoCacador1Vida >= 0 && infoCacador2Vida >= 0)
-    {
-        tentativasS();
+    }else if(infoCacador1Vida >= 0 && infoCacador2Vida >= 0){
+         return tentativasS();
     }
 }
 
@@ -263,8 +260,7 @@ function jogarnovamente(){
             infoCacador2Vida.vida = 100;
             infoCientistaVida.vida = 100;
 
-            validador();
-            tentativasS();
+            return validador();
         }
         else{
             return ganharGame()
@@ -282,7 +278,6 @@ ${monstroNome} e ${cientista} vai enfiem definir o vencedor da partida...`)
 
 
     function random(maximo, minimo = 0) {
-        //Função random
         let max = Math.floor(maximo);
         let min = Math.ceil(minimo);
         let random = Math.random() * (max - min + 1) + min;
@@ -364,28 +359,37 @@ ${monstroNome} e ${cientista} vai enfiem definir o vencedor da partida...`)
 
 function ganharGame () {
     console.log('Parabéns você ganhou o jogo, O monstro foi derrotado com uma arma letal e a humanidade foi salva com o antitodo criado pelo cientista')
-    console.log('Você pode jogar novamente se quiser...')
-    console.log(`
+    do {
+        console.log('Você pode jogar novamente se quiser...')
+        console.log(`
     Deseja jogar de novo?: 
     1) Sim            2) Não
     `)
-    let jogaMais = prompt(`R: `).toLowerCase();
-    if (jogaMais == 1 || jogaMais == `sim`) {
-        console.clear();
-        return validador();
-    }else if(jogaMais == 2){}
+        let jogaMais = prompt(`R: `).toLowerCase();
+        if (jogaMais == 1 || jogaMais == 'sim') {
+            console.clear();
+            return validador();
+        } if (jogaMais ==2 || jogaMais == 'nao'){
+            console.log('FIM!')
+            break;
+        }
+    }while (true){}
 };
 
 function monstrovence() {
     console.log('O monstro venceu dessa vez, mas você pode jogar novamente se quiser...')
-    console.log(`
+   do {
+       console.log(`
     Deseja jogar de novo?: 
     1) Sim            2) Não
     `)
-    let jogaMais = prompt(`R: `).toLowerCase();
-    if (jogaMais == 1 || jogaMais == `sim`) {
-        console.clear();
-        return validador();
-    }else if(jogaMais == 2){
-    }
+       let jogaMais = prompt(`R: `).toLowerCase();
+       if (jogaMais == 1 || jogaMais == `sim`) {
+           console.clear();
+           return validador();
+       }  if (jogaMais ==2 || jogaMais == 'nao') {
+           console.log('FIM!')
+           break;
+       }
+   }while (true){};
 };
