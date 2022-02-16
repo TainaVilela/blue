@@ -12,14 +12,8 @@ e somente com materiais como fibra espacial produzidos no seu planeta são capaz
 `);
 
 let escolha = "";
-// let separados = true;
-// let chances = 3;
-// let count = 0;
-// let numeroCodigo = [];
 var codigo = [1, 3, 5];
 var sorteio = shuffle(codigo);
-let tentativa;
-//variavel de status
 
 let infoMonstroVida = {
     vida: 200,
@@ -33,10 +27,7 @@ let infoCacador2Vida = {
 let infoCientistaVida = {
     vida: 100,
 };
-// infoCientistaVida = infoCientistaVida - 33.1
-// let intCientista = parseInt(infoCientistaVida);
 
-// variavel de tempo
 var dias = 0;
 let monstroNome = "";
 let cientista = "";
@@ -44,6 +35,7 @@ let cacador1 = "";
 let cacador2 = "";
 
 function sleep(milliseconds) {
+    //Variável para controle da passagem do tempo
     var start = new Date().getTime();
     for (var i = 0; i < 1e7; i++) {
         if (new Date().getTime() - start > milliseconds) {
@@ -107,6 +99,7 @@ Você pode enviar os dois juntos para se protegerem e se ajudarem nas buscas e c
 ou, pode separá-los, enviar um para a cidade e outro para a floresta afim de ganhar tempo, mas podem haver muitos perigos!
 `);
 
+    //função para sorteio dos números de desbloqueio das missões "TENTATIVA".
 function shuffle(array) {
     let currentIndex = array.length,
         randomIndex;
@@ -131,10 +124,16 @@ function shuffle(array) {
 }
 
 function validador() {
+    //Funções para executar cada uma das tarefas - função que os personagens executam a primeira missão juntos/separrados
+    /* variável que armazena status de "juntos/separados"*/let separados = true;
+
     do {
         console.log(`Deseja separar ${cacador1} e ${cacador2} para cada um buscar um elemento?: 
                 1) Sim            2) Não`);
         escolha = prompt(`R: `).toLowerCase();
+
+        //Condicionais para alterações dessas variáveis
+        //Conteúdo de condicionais, laços, funções e objetos bem aplicados
         if (escolha == 1 || escolha === `sim`) {
             separados = true;
             return tentativasSeparados();
@@ -152,6 +151,9 @@ function validador() {
 }
 
 function tentativasS() {
+    //Conteúdo de condicionais, laços, funções e objetos bem aplicados
+    /* variável que armazena status de "aposta"*/let tentativa;
+    //Funções para executar cada uma das tarefas - função que os personagens executam a primeira missão
     console.log(
         "\nStatus de vida " + cacador1 + ": " + Math.trunc(infoCacador1Vida.vida)
     );
@@ -169,6 +171,9 @@ function tentativasS() {
     console.log(`Ao encontrarem a nave notam que o monstro está dormindo profundamente e tentam desbloquear a porta da nave para buscar o que é necessário
             ...
             para desbloquear essa porta é necessário digitar um código de 3 números ímpares aleatórios entre 1 e 5 que não se repetem! `);
+
+    /*Laço de repetição que determinará os ciclos em que a história vai se passar. Determinar o que acontecerá ao final
+    do ciclo e como ficarão os status*/
     for (let tentativa = 1; tentativa < 4; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
 
@@ -181,7 +186,7 @@ function tentativasS() {
         Pegue o que puder e leve para o cientista produzir o material necessário para atacar o monstro e o vírus.
         Para segui para o laboratório...
         1) Sim`);
-        let continuar = prompt(`R: `).toLowerCase();
+        continuar = prompt(`R: `).toLowerCase();
         return voltaLaboratorioSemMaterial();
     } else if (codigo === sorteio) {
         console.log(`Você acertou, o código é ${sorteio}, pegue seus elementos e siga para a próxima etapa.
@@ -195,6 +200,9 @@ function tentativasS() {
 }
 
 function tentativasSeparados() {
+    //Conteúdo de condicionais, laços, funções e objetos bem aplicados
+    /* variável que armazena status de "aposta"*/let tentativa;
+    //Funções para executar cada uma das tarefas - função que os personagens executam a primeira missão
     console.log(
         "\nStatus de vida " + cacador1 + ": " + Math.trunc(infoCacador1Vida.vida)
     );
@@ -216,6 +224,7 @@ function tentativasSeparados() {
         `${cacador1} Encontra a nave do ${monstroNome}, a nave emite um forte calor, ao se aproximar da nave sente uma grande onda de calor... tudo leva a crer
         que dentro da nave estão os materiais necessários para produzir a bala capaz de matar o monstro e o antídoto para salvar a humanidade do vírus.`);
 
+    /*Laço de repetição que determinará os ciclos em que a história vai se passar. Determinar o que acontecerá ao final do ciclo e como ficarão os status*/
     for (let tentativa = 1; tentativa < 4; tentativa++) {
         codigo = prompt("Digite o códico para desbloquear a porta da nave: ");
 
@@ -261,6 +270,8 @@ function voltaAoLaboratorioComMaterial() {
 }
 
 function ultimoDesafio() {
+    //Conteúdo de condicionais, laços, funções e objetos bem aplicados
+    //Funções para executar cada uma das tarefas - tarefa matar o monstro
     console.log("");
     console.log("");
     console.clear();
@@ -268,12 +279,10 @@ function ultimoDesafio() {
 ${monstroNome} e ${cientista} vai enfim definir o vencedor da partida...`);
     sleep(4000);
 
-    function random(maximo, minimo = 0) {
-        let max = Math.floor(maximo);
-        let min = Math.ceil(minimo);
-        let random = Math.random() * (max - min + 1) + min;
-        random = parseInt(random);
-        return random;
+    function sorteando() {
+        let sorteando = Math.random() * (Math.floor (6)-(Math.ceil (1)+ 1));
+        sorteando = parseInt(sorteando);
+        return sorteando;
     }
 
     function criarJogador(qtd) {
@@ -321,10 +330,11 @@ ${jogadores[1].nome} tirou ${jogadores[1].golpe} de dano.
     validacaoNumero(qtdadeRodadas);
     let ganhador ;
 
+/*Laço de repetição que determinará os ciclos em que a história vai se passar. Determinar o que acontecerá ao final do ciclo e como ficarão os status "vencedor/perdedor*/
     for (i = 1; i < qtdadeRodadas; i++) {
         x = 0;
         for (jogador of jogadores) {
-            jogadores[x].golpe = random(20, 1);
+            jogadores[x].golpe = sorteando(20, 1);
             x++;
         }
         jogadores.sort(compararDados);
@@ -342,12 +352,12 @@ ${jogadores[1].nome} tirou ${jogadores[1].golpe} de dano.
         `O campeão desta etapa foi o jogador ${ganhador}`
     );
 
-    sleep(2500);
+    sleep(3000);
     console.log(ganhador);
     jogadores.splice(0);
     nomes.splice(0);
 
-    sleep(2500);
+    sleep(3000);
     console.log(jogador);
 
     if (ganhador == nome1) {
